@@ -14,7 +14,7 @@ public class SeqNumber {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("배열의 요소수 : ");
 		int number = scan.nextInt();
-		int[] x = new int[number];
+		int[] x = new int[number+1];
 		
 		for(int i=0; i<number; i++) {
 			System.out.print("x["+i+"] = ");
@@ -26,7 +26,7 @@ public class SeqNumber {
 		if(idx==-1) {
 			System.out.println("찾는 값이 없습니다.");
 		}else {
-			
+			System.out.println(key+"값은 x["+idx+"] 에 있습니다.");
 		}
 	}
 }
