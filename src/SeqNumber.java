@@ -6,7 +6,22 @@ public class SeqNumber {
 		//정렬(보호법)
 		int i;
 		a[n] = key;
-		for(i=0; a[i]!=key; i++);
+		for(i=0; i<=n; i++){
+			/*
+			 * for(int k = 0; k<n; k++) {
+			 * 
+			 * }
+			 */
+			for(int k=0; k<=i; k++) {
+				System.out.print("\t");
+			}
+			System.out.println("*");
+			System.out.print( i + " | \t");
+			for(int j=0; j<n; j++){
+				System.out.print( a[j] + "\t");
+			}
+			System.out.println();
+		}
 		return i==n ? -1 : i;
 	}
 	
