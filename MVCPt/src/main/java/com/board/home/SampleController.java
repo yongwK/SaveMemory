@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.home.dto.SampleDTO;
 import com.board.home.dto.SampleDTOList;
@@ -96,6 +98,38 @@ public class SampleController {
 		  return "ex03";
 	}
 	 
+	@GetMapping("/ex04")
+	public String ex04(SampleDTO dto, int page) {
+		log.info("dto : " + dto);
+		log.info("page : " + page);
+		
+		return "/ex04/ex04";
+	}
+	
+	
+	//@ModelAttribute --> 원래는 DTO에 없는 매개변수는 jsp로 가지 않으나
+	// @ModelAttribute 이 붙은 매개변수의 경우는 무조건 model에 담아서 jsp 화면으로 보낸준다.
+	@GetMapping("/ex04s")
+	public String ex04s(SampleDTO dto, @ModelAttribute("page") int page) {
+		log.info("dto : " + dto);
+		log.info("page : " + page);
+		
+		return "/ex04/ex04";
+	}
+	
+	@GetMapping("/ex05")
+	public @ResponseBody SampleDTO ex06() {
+		log.info("ex05..............");
+		
+		SampleDTO dto = new SampleDTO();
+		dto.setAge(10);
+		dto.setName("홍길동");
+		
+		return dto;
+	}
+	
+	
+	
 	
 	
 }
